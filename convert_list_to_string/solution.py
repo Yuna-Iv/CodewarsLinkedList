@@ -1,21 +1,26 @@
 """Writes linked list as a string."""
 class Node():
+    """Initialization of node"""
     def __init__(self, data, next = None):
         self.data = data
         self.next = next
 
-    def stringify(node:list) -> str:
-        """Returns a string representation of the list."""
-        result_str = ""
-        current_node = []
+def stringify(node:list) -> str:
+    """Returns a string representation of the list."""
+    result_str = ""
+    current_node = []
 
-        if node is None:
-            return 'None'
+    if node is None:
+        return 'None'
 
-        while node is not None:
-            current_node.append(str(node.data))
-            node = node.next
+    while node is not None:
+        current_node.append(str(node.data))
+        node = node.next
 
-        result_str = " -> ".join(current_node)
-        result_str += " -> None"
-        return result_str
+    result_str = " -> ".join(current_node)
+    result_str += " -> None"
+    return result_str
+
+print(stringify(Node(1, Node(2, Node(3)))))
+print(stringify(None))
+print(stringify(Node(5)))
